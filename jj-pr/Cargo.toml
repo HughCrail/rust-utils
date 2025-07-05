@@ -1,0 +1,7 @@
+[package]
+name = "jj-pr"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+jj-lib = "0.31.0"
