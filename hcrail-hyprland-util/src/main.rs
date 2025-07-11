@@ -42,6 +42,7 @@ fn get_workspaces(monitor_name: &str) -> Value {
             .iter()
             .filter(|ws| ws.monitor_id == monitor_id)
             .filter_map(|ws| match (ws.id, ws.id == active_ws_id) {
+                (10, false) => Some("󰎣"),
                 (1, false) => Some("󰎦"),
                 (2, false) => Some("󰎩"),
                 (3, false) => Some("󰎬"),
@@ -51,6 +52,7 @@ fn get_workspaces(monitor_name: &str) -> Value {
                 (7, false) => Some("󰎸"),
                 (8, false) => Some("󰎻"),
                 (9, false) => Some("󰎾"),
+                (10, true) => Some("󰎡"),
                 (1, true) => Some("󰎤"),
                 (2, true) => Some("󰎧"),
                 (3, true) => Some("󰎪"),
