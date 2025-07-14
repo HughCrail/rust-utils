@@ -3,11 +3,7 @@ use chrono::{Datelike, NaiveDateTime, NaiveTime};
 use clap::{Parser, Subcommand};
 use home::home_dir;
 use regex::Regex;
-use std::{
-    env,
-    fs::{canonicalize, metadata},
-    path::PathBuf,
-};
+use std::{env, fs::metadata, path::PathBuf};
 
 #[derive(Debug, Parser)]
 struct Cli {
@@ -158,8 +154,7 @@ fn get_valid_notes_dir() -> Result<PathBuf> {
             dirmeta
         ))
     } else {
-        canonicalize(&dir)
-            .map_err(|_| anyhow!("Failed to canonicalize the notes directory path: {:?}", dir))
+        Ok(dir)
     }
 }
 
