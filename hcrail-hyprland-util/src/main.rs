@@ -39,7 +39,7 @@ fn get_workspaces(monitor_name: &str) -> Value {
     let wsps = Workspaces::get().expect("Failed to get workspaces");
     let mut wsps = wsps
         .iter()
-        .filter(|ws| ws.monitor_id == monitor_id)
+        .filter(|ws| ws.monitor_id == Some(monitor_id))
         .collect::<Vec<_>>();
     wsps.sort_by_key(|ws| ws.id);
     json!(
